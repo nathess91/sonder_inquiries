@@ -12,11 +12,44 @@
  *
  *= require_tree .
  *= require_self
+ *= require units
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 #main {
-  margin-top: 50px;
+  margin-top: 102px;
+  margin-bottom: 102px;
+}
+
+.navbar {
+  background-color: #FFFFFF;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navy {
+  color: #003A79 !important;
+}
+
+.light-blue {
+  color: #5E8BB4 !important;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+}
+
+.btn-red {
+  border-radius: 0px;
+  background-color: #FE4A2C;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 15px 25px 15px 25px;
+}
+
+.btn-red:hover {
+  color: #FFFFFF;
+  background-color: red;
 }

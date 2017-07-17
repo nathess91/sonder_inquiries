@@ -1,3 +1,19 @@
 <% @units.each do |unit| %>
-  <p><%= unit.ad_name %></p>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="panel">
+      <div class="panel-body">
+        <h4 class="navy"><%= unit.ad_name %></h4>
+        <div class="row unit-description">
+          <div class="col-xs-6">
+            <p class="light-blue">INQUIRIES</p>
+          </div>
+          <div class="col-xs-6">
+            <p class="light-blue">/ NIGHT</p>
+            <p class="light-blue">TAX</p>
+          </div>
+        </div>
+        <button class="btn btn-red pull-right">NEW INQUIRY</button>
+      </div>
+    </div>
+  </div>
 <% end %>
