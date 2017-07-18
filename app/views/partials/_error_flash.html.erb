@@ -1,0 +1,8 @@
+<% if flash[:error] %>
+  <div class="container small-container">
+    <div class="alert alert-danger">
+      <%= flash[:error] %>
+      <a href="#" class="close" aria-label="close">&times;</a>
+    </div>
+  </div>
+<% end %>

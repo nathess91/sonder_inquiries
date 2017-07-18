@@ -15,12 +15,15 @@ class InquiriesController < ApplicationController
   end
 
   def create
+    @unit = Unit.find(params[:unit_id])
     @inquiry = Unit.find(params[:unit_id]).inquiries.create(inquiry_params)
 
     if @inquiry.valid?
-      redirect_to root_path
+      flash[:success] = "Inquiry created successfully"
+      redirect_to unit_path(@unit.id)
     else
-      redirect_to :back
+      flash[:error] = @inquiry.errors.full_messages.join(". ")
+      redirect_back(fallback_location: root_path)
     end
 
   end
