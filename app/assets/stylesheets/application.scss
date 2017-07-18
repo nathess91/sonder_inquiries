@@ -32,6 +32,7 @@
 
 .navy {
   color: #003A79 !important;
+  border: none !important;
 }
 
 .light-blue {
@@ -55,7 +56,7 @@
 }
 
 .btn-red:hover {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   background-color: red;
 }
 
