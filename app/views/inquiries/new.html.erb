@@ -1,0 +1,53 @@
+<div class="form-background">
+  <div class="container">
+    <h1 class="navy text-center">New Inquiry</h1>
+    <div class="container">
+      <h3 class="red"><%= @unit.ad_name.upcase %></h3>
+      <%= form_for [@unit, @inquiry] do |f| %>
+        <div class="form-group">
+          <div class="form-section-wrapper">
+            <h5 class="text-center">CONTACT INFO</h5>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <label class="control-label light-blue">FIRST NAME</label>
+              <%= f.text_field :first_name, class: "form-control" %>
+            </div>
+            <div class="col-xs-6">
+              <label class="control-label light-blue">LAST NAME</label>
+              <%= f.text_field :last_name, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label light-blue">EMAIL ADDRESS</label>
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label class="control-label light-blue">PHONE NUMBER</label>
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <div class="form-section-wrapper">
+            <h5 class="text-center">RESERVATION DETAILS</h5>
+          </div>
+          <label class="control-label light-blue">RENTAL SITE</label>
+          <%= f.text_field :rental_site, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-6">
+              <label class="control-label light-blue">ARRIVAL DATE</label>
+              <%= f.date_field :arrival_date, class: "form-control" %>
+            </div>
+            <div class="col-xs-6">
+              <label class="control-label light-blue">DEPARTURE DATE</label>
+              <%= f.date_field :departure_date, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <%= f.submit "SUBMIT", class: "btn btn-red pull-right", style: "margin-top:50px" %>
+      <% end %>
+    </div>
+  </div>
+</div>
