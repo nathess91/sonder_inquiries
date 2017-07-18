@@ -18,15 +18,19 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #FE4A2C !important;
+  padding-bottom: 01px;
+  text-decoration: none !important;
+  border-bottom: 1px solid #FE4A2C !important;
 
   &:visited {
-    color: #666;
+    color: #003A79;
+    border-bottom: 1px solid #003A79;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #003A79 !important;
+    border-bottom: 1px solid #003A79 !important;
   }
 }
 
