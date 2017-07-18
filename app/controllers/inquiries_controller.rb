@@ -1,9 +1,11 @@
 class InquiriesController < ApplicationController
+
   def index
     @inquiries = Inquiry.all
   end
 
   def show
+    @unit = Unit.find(params[:unit_id])
     @inquiry = Inquiry.find(params[:id])
   end
 
@@ -28,4 +30,5 @@ class InquiriesController < ApplicationController
   def inquiry_params
     params.require(:inquiry).permit(:rental_site, :phone_number, :email, :first_name, :last_name, :arrival_date, :departure_date, :unit_id)
   end
+
 end
