@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require units
+ *= require inquiries
  */
 
 @import "bootstrap-sprockets";
@@ -40,16 +41,36 @@
   font-size: 12px;
 }
 
+.red {
+  color: #FE4A2C;
+}
+
 .btn-red {
   border-radius: 0px;
   background-color: #FE4A2C;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   font-size: 13px;
   font-weight: bold;
-  padding: 15px 25px 15px 25px;
+  padding: 15px 35px 15px 35px;
 }
 
 .btn-red:hover {
   color: #FFFFFF;
   background-color: red;
+}
+
+.form-control {
+  border-radius: 0px;
+  border: none;
+  // border-bottom: 2px solid #003A79;
+  padding: 25px 25px 25px 25px;
+}
+
+.form-section-wrapper {
+  background-color: #003A79;
+  color: #FFFFFF;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  margin-top: 50px;
 }
