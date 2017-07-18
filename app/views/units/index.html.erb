@@ -2,14 +2,16 @@
   <% @units.each do |unit| %>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <div class="panel">
+        <div class="panel-heading">
+          <h4><%= link_to "#{unit.ad_name}", unit_path(unit.id) %></h4>
+        </div>
         <div class="panel-body">
-          <h4 class="navy"><%= link_to "#{unit.ad_name}", unit_path(unit.id), class: "navy" %></h4>
           <div class="row unit-description">
             <div class="col-xs-6">
               <p class="light-blue"><%= unit.inquiries.count %> INQUIRIES</p>
             </div>
             <div class="col-xs-6">
-              <p class="light-blue">$<%= get_avg_price(unit.id) %> / NIGHT</p>
+              <p class="light-blue margin-bottom-0">$<%= get_avg_price(unit.id) %> / NIGHT</p>
               <p class="light-blue"><%= unit.tax_percent %> TAX</p>
             </div>
           </div>

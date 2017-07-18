@@ -1,9 +1,24 @@
 <div class="container">
-  <h3><%= @unit.ad_name %></h3>
-  <p>NUMBER OF INQUIRIES: <%= @unit.inquiries.count %></p>
+  <h2 class="navy"><%= @unit.ad_name %></h2>
+  <p>TOTAL NUMBER OF INQUIRIES: <%= @unit.inquiries.count %></p>
+  <p>AVERAGE NIGHTLY COST: $<%= get_avg_price(@unit.id) %></p>
   <% @unit.inquiries.each do |inq| %>
-    <p>TOTAL NIGHTS RENTED: <%= total_nights_rented(inq.id) %></p>
-    <p>TOTAL PRICE: <%= calculate_total_price(inq.id, @unit.id) %></p>
-    <p>TAXES WITHHELD: <%= calculate_taxes(inq.id, @unit.id) %></p>
+    <div class="panel">
+      <div class="panel-header">
+        <h4>#<%= inq.id %></h4>
+      </div>
+      <div class="panel-body">
+        <h5 class="light-blue">CONTACT INFO</h5>
+        <p>FIRST NAME: <%= inq.first_name %></p>
+        <p>LAST NAME: <%= inq.last_name %></p>
+        <p>EMAIL: <%= inq.email %></p>
+        <p>PHONE NUMBER: <%= inq.phone_number %></p>
+        <h5 class="light-blue">RESERVATION DETAILS</h5>
+        <p>SOURCE: <%= inq.rental_site %></p>
+        <p>TOTAL NIGHTS RENTED: <%= total_nights_rented(inq.id) %></p>
+        <p>TOTAL PRICE: $<%= calculate_total_price(inq.id, @unit.id) %></p>
+        <p>TAXES WITHHELD: <%= calculate_taxes(inq.id, @unit.id) %></p>
+      </div>
+    </div>
   <% end %>
 </div>
