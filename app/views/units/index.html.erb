@@ -8,11 +8,14 @@
         <div class="panel-body">
           <div class="row unit-description">
             <div class="col-xs-6">
-              <p class="light-blue"><%= unit.inquiries.count %> INQUIRIES</p>
+              <p class="light-blue margin-bottom-0">INQUIRIES</p>
+              <h4 class="margin-top-0"><%= unit.inquiries.count %></h4>
             </div>
             <div class="col-xs-6">
-              <p class="light-blue margin-bottom-0">$<%= get_avg_price(unit.id) %> / NIGHT</p>
-              <p class="light-blue"><%= unit.tax_percent %> TAX</p>
+              <p class="light-blue margin-bottom-0">AVG. PRICE / NIGHT</p>
+              <h4 class="margin-top-0"><%= number_to_currency(get_avg_price(unit.id)) || "N/A" %></h4>
+              <p class="light-blue margin-bottom-0">TAX PERCENT</p>
+              <h4 class="margin-top-0"><%= unit.tax_percent %></h4>
             </div>
           </div>
           <%= link_to "New Inquiry", new_unit_inquiry_path(unit.id), class: "pull-right" %>

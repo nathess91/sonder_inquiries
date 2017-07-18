@@ -50,20 +50,21 @@
   border-radius: 0px;
   background-color: #FE4A2C;
   color: #FFFFFF !important;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 15px 35px 15px 35px;
+  font-size: 13px !important;
+  font-weight: bold !important;
+  padding: 15px 35px 15px 35px !important;
+  border: none !important;
 }
 
 .btn-red:hover {
   color: #FFFFFF !important;
   background-color: red;
+  border: none !important;
 }
 
 .form-control {
   border-radius: 0px;
   border: none;
-  // border-bottom: 2px solid #003A79;
   padding: 25px 25px 25px 25px;
 }
 
@@ -78,6 +79,10 @@
 
 .margin-bottom-0 {
   margin-bottom: 0 !important;
+}
+
+.margin-top-0 {
+  margin-top: 0 !important;
 }
 
 .nav-link {

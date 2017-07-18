@@ -1,16 +1,32 @@
 <div class="container">
-  <h2 class="navy"><%= @unit.ad_name %></h2>
-  <p>TOTAL NUMBER OF INQUIRIES: <%= @unit.inquiries.count %></p>
-  <p>AVERAGE NIGHTLY COST: $<%= get_avg_price(@unit.id) %></p>
+  <%= link_to "NEW INQUIRY", new_unit_inquiry_path(@unit.id), class: "btn btn-red pull-right" %>
+  <br>
+  <h1 class="navy"><%= @unit.ad_name %></h1>
+  <br>
+  <div class="row">
+    <div class="col-xs-4">
+      <p class="light-blue margin-bottom-0">TOTAL NUMBER OF INQUIRIES</p>
+      <h3 class="margin-top-0"><%= @unit.inquiries.count %></h3>
+    </div>
+    <div class="col-xs-6">
+      <p class="light-blue margin-bottom-0">AVERAGE NIGHTLY COST</p>
+      <h3 class="margin-top-0"><%= number_to_currency(get_avg_price(@unit.id)) || "N/A" %></h3>
+      <p class="light-blue margin-bottom-0">TAX PERCENT</p>
+      <h3 class="margin-top-0"><%= @unit.tax_percent %></h3>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
   <% @unit.inquiries.each do |inq| %>
     <div class="panel">
       <div class="panel-heading inquiry-header">
-        <h4>#<%= inq.id %></h4>
+        <h4>#<%= inq.id %> <%= inq.last_name %>, <%= inq.first_name %></h4>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-xs-6">
-            <h5 class="navy">Contact Info</h5>
+            <h4 class="navy">Contact Info</h4>
             <div class="row">
               <div class="col-xs-3">
                 <p class="light-blue margin-bottom-0">FIRST NAME</p>
@@ -27,11 +43,16 @@
             <p><%= inq.phone_number %></p>
           </div>
           <div class="col-xs-6">
-            <h5 class="navy">Reservation Details</h5>
+            <h4 class="navy">Reservation Details</h4>
             <div class="row">
               <div class="col-xs-4">
                 <p class="light-blue margin-bottom-0">RESERVATION DATES</p>
-                <p><%= inq.arrival_date %> <span class="glyphicon glyphicon-arrow-right"></span> <%= inq.departure_date %></p>
+                <p>
+                  <%= inq.arrival_date.strftime("%b %d, %Y") %>
+                  <span class="glyphicon glyphicon-arrow-right"></span>
+                  <br>
+                  <%= inq.departure_date.strftime("%b %d, %Y") %>
+                </p>
               </div>
               <div class="col-xs-4">
                 <p class="light-blue margin-bottom-0">TOTAL NIGHTS RENTED</p>
