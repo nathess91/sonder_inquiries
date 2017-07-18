@@ -4,20 +4,54 @@
   <p>AVERAGE NIGHTLY COST: $<%= get_avg_price(@unit.id) %></p>
   <% @unit.inquiries.each do |inq| %>
     <div class="panel">
-      <div class="panel-header">
+      <div class="panel-heading inquiry-header">
         <h4>#<%= inq.id %></h4>
       </div>
       <div class="panel-body">
-        <h5 class="light-blue">CONTACT INFO</h5>
-        <p>FIRST NAME: <%= inq.first_name %></p>
-        <p>LAST NAME: <%= inq.last_name %></p>
-        <p>EMAIL: <%= inq.email %></p>
-        <p>PHONE NUMBER: <%= inq.phone_number %></p>
-        <h5 class="light-blue">RESERVATION DETAILS</h5>
-        <p>SOURCE: <%= inq.rental_site %></p>
-        <p>TOTAL NIGHTS RENTED: <%= total_nights_rented(inq.id) %></p>
-        <p>TOTAL PRICE: $<%= calculate_total_price(inq.id, @unit.id) %></p>
-        <p>TAXES WITHHELD: <%= calculate_taxes(inq.id, @unit.id) %></p>
+        <div class="row">
+          <div class="col-xs-6">
+            <h5 class="navy">Contact Info</h5>
+            <div class="row">
+              <div class="col-xs-3">
+                <p class="light-blue margin-bottom-0">FIRST NAME</p>
+                <p><%= inq.first_name %></p>
+              </div>
+              <div class="col-xs-3">
+                <p class="light-blue margin-bottom-0">LAST NAME</p>
+                <p><%= inq.last_name %></p>
+              </div>
+            </div>
+            <p class="light-blue margin-bottom-0">EMAIL ADDRESS</p>
+            <p><%= inq.email %></p>
+            <p class="light-blue margin-bottom-0">PHONE NUMBER</p>
+            <p><%= inq.phone_number %></p>
+          </div>
+          <div class="col-xs-6">
+            <h5 class="navy">Reservation Details</h5>
+            <div class="row">
+              <div class="col-xs-4">
+                <p class="light-blue margin-bottom-0">RESERVATION DATES</p>
+                <p><%= inq.arrival_date %> <span class="glyphicon glyphicon-arrow-right"></span> <%= inq.departure_date %></p>
+              </div>
+              <div class="col-xs-4">
+                <p class="light-blue margin-bottom-0">TOTAL NIGHTS RENTED</p>
+                <p><%= inq.total_nights_rented %> nights</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <p class="light-blue margin-bottom-0">TOTAL PRICE</p>
+                <p><%= number_to_currency(inq.price) %></p>
+              </div>
+              <div class="col-xs-4">
+                <p class="light-blue margin-bottom-0">TAXES WITHHELD</p>
+                <p><%= number_to_currency(inq.taxes_withheld) %></p>
+              </div>
+            </div>
+            <p class="light-blue margin-bottom-0">SOURCE</p>
+            <p><%= inq.rental_site %></p>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>

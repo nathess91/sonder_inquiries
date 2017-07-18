@@ -23,7 +23,7 @@ class InquiriesController < ApplicationController
       redirect_to unit_path(@unit.id)
     else
       flash[:error] = @inquiry.errors.full_messages.join(". ")
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     end
 
   end
