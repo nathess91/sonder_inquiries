@@ -41,11 +41,12 @@ To maintain consistency and honor the existing design on Sonder's website, I did
 <img src="http://i.imgur.com/9tb5HKl.png" width="600">
 
 ### Flash Messages and Validations
-When a new inquiry is created successfully
+When a new inquiry is created successfully.
 <img src="http://i.imgur.com/QvGH98Z.png" width="600">
 
 
 The Inquiry model contains data validations that will show up as an error message if a user fails to input an arrival date, for an example.
+
 <img src="http://i.imgur.com/U7YCGcG.png" width="600">
 
 ### Unit Page
