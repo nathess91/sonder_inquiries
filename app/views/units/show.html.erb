@@ -1,1 +1,9 @@
-<h3><%= @unit.ad_name %></h3>
+<div class="container">
+  <h3><%= @unit.ad_name %></h3>
+  <p>NUMBER OF INQUIRIES: <%= @unit.inquiries.count %></p>
+  <% @unit.inquiries.each do |inq| %>
+    <p>TOTAL NIGHTS RENTED: <%= total_nights_rented(inq.id) %></p>
+    <p>TOTAL PRICE: <%= calculate_total_price(inq.id, @unit.id) %></p>
+    <p>TAXES WITHHELD: <%= calculate_taxes(inq.id, @unit.id) %></p>
+  <% end %>
+</div>
