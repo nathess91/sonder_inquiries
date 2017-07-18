@@ -3,7 +3,6 @@ class Inquiry < ApplicationRecord
 
   validates :first_name, :last_name, :arrival_date, :departure_date, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  validates :phone_number, :presence => true
 
   attr_accessor :get_avg_price, :total_nights_rented, :calculate_total_price, :calculate_taxes
   after_save :calculate_total_price, :calculate_taxes
