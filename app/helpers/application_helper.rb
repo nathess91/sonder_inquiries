@@ -1,16 +1,12 @@
 module ApplicationHelper
 
   def get_avg_price(unit_id)
-    unit = Unit.find(unit_id)
-    all_unit_prices = DayPrice.pluck(:price, :unit_id)
+    unit = Unit.find_by_id(unit_id)
 
-    unit_prices = all_unit_prices.select { |price, unit| unit == unit }
-
-    one_unit_prices = unit_prices.each { |price| price.pop() }
-
-    result_prices = one_unit_prices.flatten
-
-    return (result_prices.inject{ |sum, el| sum + el }.to_f / result_prices.size).ceil
+    if unit.day_prices.count > 0
+      prices = unit.day_prices.pluck(:price)
+      return (prices.inject{ |sum, amt| sum + amt }.to_f / prices.size).ceil
+    end
 
   end
 
